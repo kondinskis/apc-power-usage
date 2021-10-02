@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dygraph/dygraph.min.css') }}">
+  <title>APC Power Usage</title>
+
+  <style type="text/css">
+    #div_g {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      top: 40px;
+      bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="div_g"></div>
+  <script type="text/javascript" src="{{ url_for('static', filename='dygraph/dygraph.min.js') }}"></script>
+  <script type="text/javascript">
+    new Dygraph(
+      document.getElementById("div_g"),
+      "{{readings|safe}}", {
+      rollPeriod: 1,
+      showRoller: true,
+    }
+    );
+  </script>
+</body>
+
+</html>
