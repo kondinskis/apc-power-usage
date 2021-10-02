@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 
 
 engine = create_engine(
-    "sqlite:///foo.db", connect_args={"check_same_thread": False}
+    "sqlite:///main.db", connect_args={"check_same_thread": False}
 )
 Session = sessionmaker(bind=engine)
 Base = declarative_base()
