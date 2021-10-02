@@ -2,9 +2,7 @@ from sqlalchemy import create_engine, Column, Integer, String, DateTime, Float
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 
-engine = create_engine(
-    "sqlite:///main.db", connect_args={"check_same_thread": False}
-)
+engine = create_engine("sqlite:///main.db", connect_args={"check_same_thread": False})
 Session = sessionmaker(bind=engine)
 Base = declarative_base()
 
