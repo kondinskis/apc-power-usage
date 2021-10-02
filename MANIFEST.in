@@ -1,0 +1,2 @@
+recursive-include apc/templates *
+recursive-include apc/static *
