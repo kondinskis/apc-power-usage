@@ -6,25 +6,28 @@
   <title>APC Power Usage</title>
 
   <style type="text/css">
-    #div_g {
-      position: absolute;
-      left: 10px;
-      right: 10px;
-      top: 40px;
-      bottom: 10px;
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      margin: 0;
+      overflow: hidden;
     }
   </style>
 </head>
 
 <body>
-  <div id="div_g"></div>
+  <div id="div_g" style="width: 100%; height: 99%;"></div>
   <script type="text/javascript" src="{{ url_for('static', filename='dygraph/dygraph.min.js') }}"></script>
   <script type="text/javascript">
     new Dygraph(
       document.getElementById("div_g"),
       "{{readings|safe}}", {
       rollPeriod: 1,
-      showRoller: true,
+      title: "APC Power Usage",
+      xlabel: "Date",
+      ylabel: "Watt (W)"
     }
     );
   </script>

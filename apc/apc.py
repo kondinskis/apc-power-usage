@@ -75,10 +75,10 @@ class APC(object):
 
 class Collector(threading.Thread):
     def __init__(self):
-        super(Collector, self).__init__(target=self._collector, daemon=True)
+        super(Collector, self).__init__(target=self._collect, daemon=True)
         self.apc = APC()
 
-    def _collector(self):
+    def _collect(self):
         while True:
             self.apc.reload()
             date = datetime(
