@@ -24,7 +24,7 @@ def create_app(config=Config):
         readings_combined = "Date,Load\\n"
         for reading in readings:
             readings_combined = readings_combined + "{},{}\\n".format(
-                reading.date, reading.load / reading.no_logs
+                reading.date, round(reading.load / reading.no_logs)
             )
         return render_template("index.html", readings=readings_combined)
 
