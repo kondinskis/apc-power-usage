@@ -4,11 +4,13 @@ from sqlalchemy import create_engine, Column, Integer, String, DateTime, Float
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 
-db_path = pathlib.Path(__file__).parent.joinpath("..").resolve()
+apc_dir = pathlib.Path.home().joinpath(".apc-power-usage").resolve()
+if not apc_dir.exists():
+    apc_dir.mkdir()
 
 
 engine = create_engine(
-    "sqlite:///{}/main.db".format(db_path), connect_args={"check_same_thread": False}
+    "sqlite:///{}/main.db".format(apc_dir), connect_args={"check_same_thread": False}
 )
 Session = sessionmaker(bind=engine)
 Base = declarative_base()
